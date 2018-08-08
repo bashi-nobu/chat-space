@@ -1,0 +1,47 @@
+@import "variables";
+
+.sidebar{
+    float: left;
+    width: 300px;
+    box-sizing: border-box;
+    background-color: $dark-blue;
+    color: $white;
+    &__header{
+        padding: 0 20px;
+        background-color: $dark-cyan-blue;
+        height: 100px;
+        line-height: 100px;
+        &__name{
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        &__lists{
+            display: inline-block;
+            float: right;
+            list-style: none;
+            .list{
+                float: left;
+                margin-left:10px;
+                a{
+                    color: $white;
+                }
+            }
+        }
+    }
+    &__groups{
+        height: calc(100vh - 100px);
+        padding: 20px 20px 0px;
+        box-sizing:border-box;
+        &__group{
+            &__name{
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+            &__message{
+                font-size: 11px;
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
