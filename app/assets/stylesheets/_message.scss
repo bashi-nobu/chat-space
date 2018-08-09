@@ -1,15 +1,15 @@
 @import "variables";
 @import "./mixin/clearfix";
 
-.message{
+.chat{
   float: right;
   width:calc(100vw - 300px);
-  .message__header{
+  &__header{
     height: 100px;
     padding:0 40px;
     box-sizing: border-box;
     @include clearfix();
-    .left-header{
+    &_left{
         float: left;
         .left-header__title{
             font-size: 20px;
@@ -22,7 +22,7 @@
             margin-top: 15px;
         }
     }
-    .right-header{
+    &_right{
         border: 2px solid $cyan-blue;
         color: $cyan-blue;
         float: right;
@@ -35,31 +35,29 @@
         }
     }
   }
-  .message__main{
+  &__main{
     background-color: $very-light-gray;
     border-top:1px solid $pale-gray;
     box-sizing: border-box;
     height: calc(100vh - 100px - 90px);
     overflow: scroll;
     padding: 46px 40px 0;
-    .chat__message{
+    .message{
          margin-bottom: 40px;
-        .chat__upper__message{
-            .chat__message__name{
+        &__upper{
+            &__name{
                 font-weight: bold;
                 display: inline-block;
             }
-            .chat__message__date{
+            &__date{
                 display: inline-block;
                 font-size:12px;
                 color: $light-gray;
                 margin-left: 10px;
             }
         }
-        .chat__lowwer__message{
-            .chat__message__message{
-                margin-top: 10px;
-            }
+        &__lowwer{
+            margin-top: 10px;
         }
     }
   }
