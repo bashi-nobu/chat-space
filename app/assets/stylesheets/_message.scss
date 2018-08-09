@@ -37,6 +37,7 @@
   }
   .message__main{
     background-color: $very-light-gray;
+    border-top:1px solid $pale-gray;
     box-sizing: border-box;
     height: calc(100vh - 100px - 90px);
     overflow: scroll;
