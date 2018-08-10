@@ -1,0 +1,37 @@
+.form{
+  background-color: $light-green;
+  box-sizing: border-box;
+  height: 90px;
+  padding: 20px 50px 20px 40px;
+  @include clearfix();
+  &__message{
+    border: none;
+    box-sizing: border-box;
+    float: left;
+    height: 50px;
+    padding: 0 10px;
+    width: calc(100% - 150px);
+  }
+  &__img{
+    border: none;
+    box-sizing: border-box;
+    float: left;
+    height: 50px;
+    padding: 0 10px;
+    line-height: 50px;
+    background-color: $white;
+    &__upload{
+      display: none;
+    }
+  }
+  &__submit-button{
+    background-color: $cyan-blue;
+    border: none;
+    color: $white;
+    float: right;
+    font-size: 16px;
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 25px;
+  }
+}
