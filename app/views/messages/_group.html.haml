@@ -1,10 +1,8 @@
 .sidebar__groups__group
-  .sidebar__groups__group__name
-    sample_group1
-  .sidebar__groups__group__message
-    Hello!
-.sidebar__groups__group
-  .sidebar__groups__group__name
-    sample_group2
-  .sidebar__groups__group__message
-    good bye!
+  - current_user.groups.each do |group|
+    = link_to group_messages_path(group) do
+      .sidebar__groups__group__name
+        = group.name
+      .sidebar__groups__group__message
+        メッセージはまだありません。
+
