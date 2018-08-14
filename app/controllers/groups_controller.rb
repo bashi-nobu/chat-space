@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  def index
+  end
+
   def new  #グループ作成画面
     #ユーザーネームを取得
     @group = Group.new
@@ -23,6 +26,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, { uswer_ids: []})
+    params.require(:group).permit(:name, { user_ids: []})
   end
 end
