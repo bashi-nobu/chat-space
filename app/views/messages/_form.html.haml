@@ -1,7 +1,7 @@
-%form{action: "/", method: "post"}
-  %input{name: "message", class: "form__message", size: "20", placeholder: "type a message"}
+= form_for [@group, @message] do |f|
+  = f.text_field :content,class: "form__message", size: "20", placeholder: "type a message"
   .form__img
-    %label
+    = f.label :image do
       = fa_icon "picture-o"
-      %input{class: "form__img__upload", type: "file"}
-  %input{class:"form__submit-button", type: "submit", value: "Send"}
+      = f.file_field :image, class: "form__img__upload"
+  = f.submit "Send", class: "form__submit-button"
