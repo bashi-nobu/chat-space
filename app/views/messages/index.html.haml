@@ -23,6 +23,6 @@
         %a.right-header__button
           Edit
     .chat__main
-      = render partial: "message"
+      = render partial: "message", collection: @messages
     .form
       = render partial: "form"
