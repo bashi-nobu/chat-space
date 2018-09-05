@@ -1,4 +1,5 @@
-= form_for [@group, @message] do |f|
+= form_for [@group, @message],html: { id: 'message_form'} do |f|
+  = f.hidden_field :group_id, value: @group.id
   = f.text_field :content,class: "form__message", size: "20", placeholder: "type a message"
   .form__img
     = f.label :image do
