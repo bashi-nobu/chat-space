@@ -5,7 +5,5 @@
     .message__upper__date
       = message.created_at
     .message__lowwer
-    - unless message.content.nil?
-      = message.content
-    - else
-      = image_tag message.image.url, class: 'lower-message__image'
+      = message.content if message.content.present?
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
