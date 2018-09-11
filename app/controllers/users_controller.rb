@@ -1,6 +1,19 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.where("name like ?", "%#{search_user_params[:search_name]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def edit
+    users = User.where("name like ?", "%#{search_user_params[:search_name]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def update
@@ -15,5 +28,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def search_user_params
+    params.permit(:search_name)
   end
 end
