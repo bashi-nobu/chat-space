@@ -1,19 +1,10 @@
 class UsersController < ApplicationController
+  before_action :search_users, only: [:index, :edit]
 
   def index
-    @users = User.where("name like ?", "%#{search_user_params[:search_name]}%")
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def edit
-    users = User.where("name like ?", "%#{search_user_params[:search_name]}%")
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def update
@@ -25,6 +16,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def search_users
+    @users = User.where('name LIKE(?)', "%#{search_user_params[:search_name]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
   def user_params
     params.require(:user).permit(:name, :email)
