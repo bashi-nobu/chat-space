@@ -5,6 +5,11 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @new_messages = @group.messages.includes(:user).where('id > ?', params[:id])
+    respond_to do |format|
+      format.html
+      format.json {@new_messages}
+    end
   end
 
   def create
@@ -12,7 +17,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'}
-        format.json  #jbuilder 'アクション名'.json.jbuilder というファイル内にjsonデータの定義をしておけば その形式に沿って jsonデータが返される
+        format.json
       end
     else
       @messages = @group.messages.includes(:user)
