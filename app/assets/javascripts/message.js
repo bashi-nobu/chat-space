@@ -54,16 +54,16 @@ $(document).on('turbolinks:load', function() {
       //チャットグループの最新のメッセージのidを取得
       var last_message_id = $(".message__upper:last").attr("data-message-id");
       $.ajax({
-        url: location.href.json,
+        type: "GET",
+        url: location.href,
         dataType: 'json',
+        data: {id: last_message_id},
       })
       //ajax処理が成功した場合の処理
       .done(function(message_list){
         message_list.forEach(function(message){
-          if(message.id > last_message_id){
-            var html = buildHTML(message);
-            $('.chat__main').append(html);  //入力された値を HTML反映
-          }
+          var html = buildHTML(message);
+          $('.chat__main').append(html);  //入力された値を HTML反映
         });
         scrollBottom(); //自動スクロール
       })
