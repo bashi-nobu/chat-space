@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function(){
   function buildHTML(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${ user.name}</p>
@@ -52,6 +52,7 @@ $(document).on('turbolinks:load', function() {
 
   //追加ボタンを押された際の処理
   $(document).on("click", ".user-search-add", function (e) {
+    $(this).off("click");
     var user_id = $(this).attr('data-user-id');
     var user_name = $(this).attr('data-user-name');
     var html = build_chatmember_HTML(user_id,user_name);
